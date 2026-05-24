@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Sniffer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Live Network Packet Dashboard</h1>
+        <div id="alert-banner" class="alert hidden"></div>
+        <section class="stats">
+            <div class="stat-item"><span>Total:</span> <span id="total-count">0</span></div>
+            <div class="stat-item"><span>TCP:</span> <span id="tcp-count">0</span></div>
+            <div class="stat-item"><span>UDP:</span> <span id="udp-count">0</span></div>
+            <div class="stat-item"><span>ICMP:</span> <span id="icmp-count">0</span></div>
+            <div class="stat-item"><span>ARP:</span> <span id="arp-count">0</span></div>
+        </section>
+        <table class="packet-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Source IP</th>
+                    <th>Dest IP</th>
+                    <th>Protocol</th>
+                    <th>Length</th>
+                    <th>Src Port</th>
+                    <th>Dst Port</th>
+                </tr>
+            </thead>
+            <tbody id="packet-body">
+                <!-- rows inserted via JS -->
+            </tbody>
+        </table>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

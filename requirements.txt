@@ -1,0 +1,5 @@
+Flask==3.0.3
+Flask-SocketIO==5.3.6
+python-socketio==5.11.2
+scapy==2.5.0
+# SQLite is built-in, no external package needed
